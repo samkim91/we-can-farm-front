@@ -2,9 +2,10 @@ import styled from "styled-components";
 import { colors } from "styles/productStyles";
 
 export const SearchInputWrapper = styled.div`
+  cursor: pointer;
   display: flex;
   align-items: center;
-  border: 2px solid ${colors.MAIN_COLOR};
+  border: 2px solid ${colors.SECONDARY_COLOR};
   z-index: 99;
   border-radius: 5px;
   padding: 5px 10px;

@@ -7,4 +7,5 @@ export const BaseLayoutContainer = styled.article``;
 export const BaseLayoutBody = styled.div`
   margin: 0 auto;
   max-width: ${styles.sizes.desktop}px;
+  padding: 0 20px;
 `;

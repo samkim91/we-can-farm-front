@@ -1,6 +1,9 @@
-import React from "react";
-import { SearchInput, SearchInputWrapper } from "./styles";
+import React, { useState } from "react";
 import { BsSearch } from "react-icons/bs";
+
+import Modal from "components/atoms/Modal";
+
+import { SearchInput, SearchInputWrapper } from "./styles";
 
 interface SearchBoxProps {
   onKeyDown: (e: KeyboardEvent) => void;
@@ -13,11 +16,24 @@ interface SearchBoxProps {
 }
 
 function SearchBox() {
+  const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
+
   return (
-    <SearchInputWrapper>
-      <SearchInput type="text" placeholder="검색어를 입력해주세요." />
-      <BsSearch size="20" />
-    </SearchInputWrapper>
+    <>
+      <SearchInputWrapper onClick={() => setIsSearchModalOpen(true)}>
+        <SearchInput type="text" placeholder="검색어를 입력해주세요." />
+        <BsSearch size="20" />
+      </SearchInputWrapper>
+
+      {isSearchModalOpen && (
+        <Modal
+          isOverLay={false}
+          onCloseModal={() => setIsSearchModalOpen(false)}
+        >
+          검색모달
+        </Modal>
+      )}
+    </>
   );
 }
 

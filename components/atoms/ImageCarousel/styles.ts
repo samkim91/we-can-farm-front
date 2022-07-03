@@ -51,7 +51,7 @@ export const LeftArrows = styled.span`
   font-size: 30px;
   color: #fba896;
   opacity: 0.5;
-  z-index: 55;
+  z-index: 1;
 
   &:hover {
     border-radius: 50%;

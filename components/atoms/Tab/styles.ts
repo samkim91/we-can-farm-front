@@ -4,6 +4,7 @@ import styles from "styles/productStyles";
 export const TabContainer = styled.section`
   max-width: ${styles.sizes.desktop}px;
   margin: 0 auto;
+  padding: 0 20px 10px 20px;
 `;
 
 export const TabWrapper = styled.span`

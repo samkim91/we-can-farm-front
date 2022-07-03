@@ -2,7 +2,8 @@ import styled from "styled-components";
 import styles from "styles/productStyles";
 
 export const BaseHeaderContainer = styled.article`
-  padding-bottom: 12px;
+  padding: 0 20px 12px 20px;
+
   margin: 0 auto;
   max-width: ${styles.sizes.desktop}px;
 
