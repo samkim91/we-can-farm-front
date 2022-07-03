@@ -1,0 +1,14 @@
+{
+    "presets": ["next/babel"],
+    "plugins": [
+        [
+        "styled-components",
+          {
+            "ssr": true,  
+            "displayName": true, //NOTE: 코드가 포함된 파일명을 알려준다 
+            "preprocess": false, //NOTE: 클래스명에 해당 스타일 정보추가 
+            "pure": true         //NOTE: 사용하지 않은 속성 제거 
+          }
+       ]
+     ]
+  }
