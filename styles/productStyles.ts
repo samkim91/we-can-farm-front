@@ -12,7 +12,7 @@ export const colors = {
   GREY_THIN: "rgba(142, 142, 142, 0.25)",
 };
 
-const sizes = {
+export const sizes = {
   mobileXS: 320,
   mobileS: 370,
   mobileM: 414,

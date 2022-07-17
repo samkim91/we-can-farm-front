@@ -26,10 +26,10 @@ function Modal({ children, onCloseModal, isOverLay = true }: ModalProps) {
         <ModalContents>
           {/* <ModalHeader>
             <p>SPECNOTE</p>
-            <button onClick={onCloseModal}>x</button>
           </ModalHeader> */}
-          {/* <ModalBody></ModalBody> */}
+          {/* <button onClick={onCloseModal}>x</button> */}
           {children}
+          {/* <ModalBody>{children}</ModalBody> */}
         </ModalContents>
       </ModalContainer>,
       portalModalElement

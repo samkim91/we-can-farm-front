@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from "styles/productStyles";
+import { colors, sizes } from "styles/productStyles";
 
 export const SlideContainer = styled.div`
   background-color: #faf4f2;
@@ -7,6 +7,7 @@ export const SlideContainer = styled.div`
   border-radius: 10px;
   text-align: center;
   margin-top: 50px;
+  max-width: ${sizes.desktop};
 `;
 
 export const SlideActive = styled.li<{ active: string }>`

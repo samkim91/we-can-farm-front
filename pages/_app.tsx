@@ -4,6 +4,9 @@ import { ThemeProvider } from "styled-components";
 import GlobalStyle from "styles/globals";
 import { theme } from "styles/theme";
 
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+
 function MyApp({ Component, pageProps }: AppProps) {
   // NOTE: main 모드에선 console 전부 삭제
   if (process.env.NEXT_PUBLIC_NODE_ENV === "main") {
