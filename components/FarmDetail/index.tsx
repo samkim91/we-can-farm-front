@@ -32,7 +32,7 @@ function FarmDetail() {
               <Image
                 width={500}
                 height={400}
-                src="http://localhost:3000/images/hepali.jpeg"
+                src="/images/hepali.jpeg"
                 loading="eager"
                 priority={true}
                 alt="farm_main_img"
