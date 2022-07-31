@@ -105,15 +105,16 @@ function CategoryCarousel({
               key={value.id}
             >
               <ImageWrapper isSelected={value.id === selectedCategory}>
-                <Image
+                {/* <Image
                   width="100"
                   height="100"
-                  src={`http://localhost:3000/images/hepali.jpeg`}
+                  src={`images/hepali.jpeg`}
                   loading="eager"
                   priority={true}
                   alt="farm_category_img"
                   quality={100}
-                />
+                /> */}
+                <img src={`images/hepali.jpeg`} />
               </ImageWrapper>
               {/* <Text checked={value.id === selectedCategory}>{value.name}</Text> */}
               <Text checked={value.id === selectedCategory}>카테고리</Text>
