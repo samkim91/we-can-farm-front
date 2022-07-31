@@ -48,7 +48,7 @@ const Home: NextPage = ({ categoryList }: any) => {
   return (
     <BaseLayout>
       {/* TODO: 반응형처리 */}
-      {/* <ImageCarousel /> */}
+      <ImageCarousel />
 
       <DynamicCategoryCarousel
         categoryList={categoryList}

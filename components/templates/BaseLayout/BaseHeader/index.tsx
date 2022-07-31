@@ -21,10 +21,11 @@ function BaseHeader({}: BaseHeaderProps) {
       <BaseHeaderContainer>
         <NabBar>
           <Link href="/">
-            <a>로고로고</a>
+            {/* <a>위캔팜</a> */}
+            <a>WeCanFarm</a>
           </Link>
 
-          <MenuWrapper>
+          {/* <MenuWrapper>
             <Menu>메뉴 1</Menu>
             <Menu isActive={"/" === router.pathname ? true : false}>
               <Link href="/">
@@ -32,9 +33,9 @@ function BaseHeader({}: BaseHeaderProps) {
               </Link>
             </Menu>
             <Menu>메뉴3</Menu>
-          </MenuWrapper>
+          </MenuWrapper> */}
+          <SearchBox />
         </NabBar>
-        <SearchBox />
       </BaseHeaderContainer>
       <Divider />
     </>

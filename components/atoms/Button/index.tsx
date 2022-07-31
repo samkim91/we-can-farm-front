@@ -3,12 +3,24 @@ import { ButtonContainer } from "./styles";
 
 interface ButtonProps {
   children: React.ReactNode;
+  onClick?: () => void;
+  isBackGround?: boolean;
+  buttonType?: "submit" | "reset" | "button";
 }
 
-function Button({ children }: ButtonProps) {
+function Button({
+  children,
+  onClick,
+  isBackGround = true,
+  buttonType,
+}: ButtonProps) {
   return (
-    <ButtonContainer>
-      <p>{children}</p>
+    <ButtonContainer
+      onClick={onClick}
+      type={buttonType ? buttonType : "button"}
+      isBackGround={isBackGround}
+    >
+      {children}
     </ButtonContainer>
   );
 }
