@@ -29,16 +29,15 @@ function FarmDetail() {
 
           <FarmInfoContentsWrapper>
             <ImageWrapper>
-              {/* <Image
+              <Image
                 width={500}
                 height={400}
-                src="images/hepali.jpeg"
+                src="http://localhost:3000/images/hepali.jpeg"
                 loading="eager"
                 priority={true}
                 alt="farm_main_img"
                 quality={100}
-              /> */}
-              <img src={`images/hepali.jpeg`} />
+              />
             </ImageWrapper>
 
             <MainInfo>

@@ -6,7 +6,7 @@ import { colors } from "styles/productStyles";
 import ImageCarousel from "components/atoms/ImageCarousel";
 import SearchBox from "components/atoms/SearchBox";
 import Link from "next/link";
-import { loadCategoryListAPI } from "api/category";
+// import { loadCategoryListAPI } from "api/category";
 import CategoryCarousel from "components/atoms/CategoryCarousel";
 import { useCallback, useEffect, useState } from "react";
 import dynamic from "next/dynamic";
@@ -50,11 +50,11 @@ const Home: NextPage = ({ categoryList }: any) => {
       {/* TODO: 반응형처리 */}
       <ImageCarousel />
 
-      <DynamicCategoryCarousel
+      {/* <DynamicCategoryCarousel
         categoryList={categoryList}
         onClickCategory={onClickCategory}
         selectedCategory={selectedCategory}
-      />
+      /> */}
       <Title>
         <strong>n</strong>
         개의 농장이 있습니다.
@@ -76,16 +76,16 @@ const Home: NextPage = ({ categoryList }: any) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const fetchCategoryList = await loadCategoryListAPI();
+// export const getServerSideProps: GetServerSideProps = async () => {
+//   const fetchCategoryList = await loadCategoryListAPI();
 
-  const categoryList = fetchCategoryList.data.data;
+//   const categoryList = fetchCategoryList.data.data;
 
-  return {
-    props: {
-      categoryList,
-    },
-  };
-};
+//   return {
+//     props: {
+//       categoryList,
+//     },
+//   };
+// };
 
 export default Home;
