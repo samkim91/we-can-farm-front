@@ -15,7 +15,7 @@ import {
 } from "./styles";
 
 interface CategoryCarouselProps {
-  categoryList: [];
+  categoryList: any[];
   selectedCategory: number;
   onClickCategory: (categoryId: number, sliderCurrIndex: number) => void;
 }
@@ -52,7 +52,7 @@ function CategoryCarousel({
     speed: 500,
     swipe: true,
     dots: true,
-    rows: 1,
+    rows: 2,
     slidesPerRow: showItem,
     arrows: false,
     beforeChange: (prev, next) => {
@@ -114,7 +114,7 @@ function CategoryCarousel({
                   alt="farm_category_img"
                   quality={100}
                 /> */}
-                <img src={`images/hepali.jpeg`} />
+                <img src={`images/hepali.jpeg`} alt="category_img" />
               </ImageWrapper>
               {/* <Text checked={value.id === selectedCategory}>{value.name}</Text> */}
               <Text checked={value.id === selectedCategory}>카테고리</Text>

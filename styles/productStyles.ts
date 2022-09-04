@@ -7,6 +7,7 @@ export const colors = {
 
   RED: "#F65C47",
 
+  GRAY_E3: "#e3e3e3",
   GREY_LIGHT: "#DCDCDC",
   GREY_MID: "#9E9E9E",
   GREY_THIN: "rgba(142, 142, 142, 0.25)",

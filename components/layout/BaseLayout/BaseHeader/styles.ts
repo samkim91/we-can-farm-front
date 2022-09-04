@@ -3,7 +3,6 @@ import styles from "styles/productStyles";
 
 export const BaseHeaderContainer = styled.article`
   padding: 0 20px 12px 20px;
-
   margin: 0 auto;
   max-width: ${styles.sizes.desktop}px;
 
@@ -24,6 +23,12 @@ export const NabBar = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
+`;
+
+export const Logo = styled.a`
+  color: ${styles.colors.MAIN_COLOR};
+  font-weight: bold;
+  font-size: 23px;
 `;
 
 export const MenuWrapper = styled.ul`

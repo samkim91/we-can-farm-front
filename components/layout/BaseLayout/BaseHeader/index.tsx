@@ -2,27 +2,26 @@ import React, { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
+import SearchBox from "components/ui/SearchBox";
+
 import {
   BaseHeaderContainer,
   NabBar,
   MenuWrapper,
   Menu,
   Divider,
+  Logo,
 } from "./styles";
-import SearchBox from "components/ui/SearchBox";
 
 interface BaseHeaderProps {}
 
 function BaseHeader({}: BaseHeaderProps) {
-  const router = useRouter();
-
   return (
     <>
       <BaseHeaderContainer>
         <NabBar>
           <Link href="/">
-            {/* <a>위캔팜</a> */}
-            <a>WeCanFarm</a>
+            <Logo>위캔팜</Logo>
           </Link>
 
           {/* <MenuWrapper>
