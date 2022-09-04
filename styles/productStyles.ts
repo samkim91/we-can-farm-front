@@ -2,7 +2,7 @@ export const colors = {
   WHITE: "#FFFFFF",
   BLACK: "#000000",
 
-  MAIN_COLOR: "#01821F",
+  MAIN_COLOR: "#FA9E49",
   SECONDARY_COLOR: "#5C2107",
 
   RED: "#F65C47",

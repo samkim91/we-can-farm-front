@@ -2,7 +2,7 @@ import React, { ChangeEvent, useCallback, useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import { IoMdClose } from "react-icons/io";
 
-import Modal from "components/atoms/Modal";
+import Modal from "components/ui/Modal";
 
 import {
   ClearSearchInputTextIcon,

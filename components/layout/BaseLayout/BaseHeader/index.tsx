@@ -9,7 +9,7 @@ import {
   Menu,
   Divider,
 } from "./styles";
-import SearchBox from "components/atoms/SearchBox";
+import SearchBox from "components/ui/SearchBox";
 
 interface BaseHeaderProps {}
 

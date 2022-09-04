@@ -1,19 +1,20 @@
 import type { GetServerSideProps, NextPage } from "next";
-import BaseLayout from "components/templates/BaseLayout";
-import FarmCard from "components/atoms/FarmCard";
+import FarmCard from "components/ui/FarmCard";
+import BaseLayout from "components/layout/BaseLayout";
+
 import styled from "styled-components";
 import { colors } from "styles/productStyles";
-import ImageCarousel from "components/atoms/ImageCarousel";
-import SearchBox from "components/atoms/SearchBox";
+import ImageCarousel from "components/ui/ImageCarousel";
+import SearchBox from "components/ui/SearchBox";
 import Link from "next/link";
 // import { loadCategoryListAPI } from "api/category";
-import CategoryCarousel from "components/atoms/CategoryCarousel";
+import CategoryCarousel from "components/ui/CategoryCarousel";
 import { useCallback, useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import useWindowDimensions from "hooks/useWindowDimensions";
 
 const DynamicCategoryCarousel = dynamic(
-  () => import("components/atoms/CategoryCarousel"),
+  () => import("components/ui/CategoryCarousel"),
   { ssr: false }
 );
 

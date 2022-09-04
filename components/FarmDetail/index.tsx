@@ -1,9 +1,8 @@
 import React from "react";
 import Image from "next/image";
 
-import Button from "components/atoms/Button";
-import Tab from "components/atoms/Tab";
-import BaseLayout from "components/templates/BaseLayout";
+import Button from "components/ui/Button";
+import Tab from "components/ui/Tab";
 import InformationUse from "./InformationUse";
 
 import { Divider } from "styles/globals";
@@ -19,6 +18,7 @@ import {
 } from "./styles";
 import InformationLocation from "./InformationLocation";
 import Reviews from "./Reviews";
+import BaseLayout from "components/layout/BaseLayout";
 
 function FarmDetail() {
   return (

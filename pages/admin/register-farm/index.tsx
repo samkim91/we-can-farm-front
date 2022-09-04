@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
-import TextInput from "components/atoms/TextInput";
+import TextInput from "components/ui/TextInput";
 import { useForm, SubmitHandler } from "react-hook-form";
 import BaseLayout from "components/templates/BaseLayout";
-import Button from "components/atoms/Button";
-import Toggle from "components/atoms/Toggle";
-import CheckBox from "components/atoms/CheckBox";
+import Button from "components/ui/Button";
+import Toggle from "components/ui/Toggle";
+import CheckBox from "components/ui/CheckBox";
 
 function RegisterfarmPage() {
   const { register, handleSubmit } = useForm();
