@@ -87,7 +87,7 @@ const Home: NextPage = ({}: any) => {
         selectedCategory={selectedCategory}
       />
 
-      <Title>제철농장 🥕</Title>
+      <Title>🥕 MD 추천</Title>
 
       {/* <FarmCardList> */}
       {/* <Link href={`/lunch`}>

@@ -19,12 +19,12 @@ function FarmListCarousel() {
     });
   }, []);
 
-  const showItem = windowWidth >= 500 ? 5 : 1;
+  const showItem = windowWidth >= 500 ? 4 : 2;
 
   const sliderOptions: Settings = {
     dots: false,
     infinite: true,
-    slidesToShow: 1,
+    slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
     rows: 1,

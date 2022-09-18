@@ -40,10 +40,10 @@ function SearchBox() {
 
   return (
     <>
-      <SearchInputWrapper onClick={() => setIsSearchModalOpen(true)}>
-        <SearchInput type="text" placeholder="검색어를 입력해주세요." />
-        <BsSearch size="20" />
-      </SearchInputWrapper>
+      {/* <SearchInputWrapper onClick={() => setIsSearchModalOpen(true)}> */}
+      {/* <SearchInput type="text" placeholder="검색어를 입력해주세요." /> */}
+      {/* </SearchInputWrapper> */}
+      <BsSearch size="20" onClick={() => setIsSearchModalOpen(true)} />
 
       {isSearchModalOpen && (
         <Modal

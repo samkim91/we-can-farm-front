@@ -4,6 +4,8 @@ import Image from "next/image";
 
 import { FarmCardContainer, FarmCardContent, FarmCardTitle } from "./styles";
 
+// NOTE: Regacy 예정
+
 function FarmCard() {
   return (
     <FarmCardContainer>

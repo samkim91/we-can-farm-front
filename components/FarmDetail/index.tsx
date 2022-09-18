@@ -1,108 +1,77 @@
 import React from "react";
 import Image from "next/image";
 
-import Button from "components/ui/Button";
-import Tab from "components/ui/Tab";
-import InformationUse from "./InformationUse";
+import BaseLayout from "components/layout/BaseLayout";
+import FarmIntroduce from "./FarmIntroduce";
+import FarmOpeningHours from "./FarmOpeningHours";
+import FarmUsePrice from "./FarmUsePrice";
+import FarmRefundPolicy from "./FarmAmenities";
+import FarmAmenities from "./FarmRefundPolicy";
+import FarmLocation from "./FarmLocation";
+import FarmOwnerInfo from "./FarmOwnerInfo";
 
-import { Divider } from "styles/globals";
 import {
   CustomDivider,
-  FarmInfoContainer,
-  FarmInfoContents,
-  FarmInfoContentsWrapper,
-  FarmInfoTitle,
-  FarmOwnerInfo,
-  ImageWrapper,
-  MainInfo,
+  FarmDetailContainer,
+  FarmImageWrapper,
+  FarmInfoBasicInfoWrapper,
+  IconTextWrapper,
 } from "./styles";
-import InformationLocation from "./InformationLocation";
-import Reviews from "./Reviews";
-import BaseLayout from "components/layout/BaseLayout";
 
 function FarmDetail() {
   return (
     <>
       <BaseLayout>
-        <FarmInfoContainer>
-          <FarmInfoTitle>농장 제목</FarmInfoTitle>
+        <FarmImageWrapper>
+          <img
+            // width={222}
+            // height={200}
+            src="/images/hepali.jpeg"
+            // loading="eager"
+            // priority={true}
+            alt="farm_main_img"
+            // quality={100}
+          />
+        </FarmImageWrapper>
+        <FarmDetailContainer>
+          <FarmInfoBasicInfoWrapper>
+            <p className="farm-small-info">업종명・파주시</p>
+            <h1>농장이름</h1>
+            <IconTextWrapper>
+              <img src="/icons/location.svg" />
+              <p>제주특별자치도 서귀포시 서호동 1523-1</p>
+            </IconTextWrapper>
 
-          <FarmInfoContentsWrapper>
-            <ImageWrapper>
-              <Image
-                width={500}
-                height={400}
-                src="/images/hepali.jpeg"
-                loading="eager"
-                priority={true}
-                alt="farm_main_img"
-                quality={100}
-              />
-            </ImageWrapper>
+            <IconTextWrapper>
+              <img src="/icons/call.svg" />
+              <p>010-2222-2222</p>
+            </IconTextWrapper>
 
-            <MainInfo>
-              <FarmInfoContents>
-                <h4 className="title">농장 업종</h4>
-                <h3 className="content">수박 . 체리 . 고구마</h3>
-              </FarmInfoContents>
+            <p className="farm-small-info">예약취소가능 여부</p>
+            <CustomDivider />
+          </FarmInfoBasicInfoWrapper>
 
-              <FarmInfoContents>
-                <h4 className="title">지역</h4>
-                <h3 className="content">양평동 연어덮밥</h3>
-              </FarmInfoContents>
+          <FarmIntroduce />
+          <CustomDivider />
 
-              <FarmInfoContents>
-                <h4 className="title">농장소개</h4>
-                <h3 className="content">
-                  아주 야무지고 맛있고 좋아요 친절친절
-                </h3>
-              </FarmInfoContents>
+          <FarmOpeningHours />
+          <CustomDivider />
 
-              <FarmInfoContents>
-                <h4 className="title">가격</h4>
-                <h3 className="content">55000원</h3>
-              </FarmInfoContents>
+          <FarmUsePrice />
+          <CustomDivider />
 
-              <FarmInfoContents>
-                <h4 className="title">운영시간</h4>
-                <h3 className="content">12:00 - 6:00</h3>
-              </FarmInfoContents>
-              <Divider />
+          <FarmRefundPolicy />
+          <CustomDivider />
 
-              <FarmOwnerInfo>
-                <dt className="title">농장주</dt>
-                <dd className="content">응애맨</dd>
-              </FarmOwnerInfo>
-              <FarmOwnerInfo>
-                <dt className="title">연락처</dt>
-                <dd className="content">010-2222-2222</dd>
-              </FarmOwnerInfo>
-              <FarmOwnerInfo>
-                <dt className="title">농장소개</dt>
-                <dd className="content">
-                  아주 야무지고 맛있고 좋아요 친절친절
-                </dd>
-              </FarmOwnerInfo>
+          <FarmAmenities />
+          <CustomDivider />
 
-              <Button>농장 예약하기</Button>
-            </MainInfo>
-          </FarmInfoContentsWrapper>
-        </FarmInfoContainer>
+          <FarmLocation />
+          <CustomDivider />
+
+          <FarmOwnerInfo />
+        </FarmDetailContainer>
       </BaseLayout>
-
-      <CustomDivider />
-
-      <Tab>
-        <div title="이용안내">
-          <InformationUse />
-        </div>
-        <div title="장소안내">
-          <InformationLocation />
-        </div>
-        <div title="이용후기">
-          <Reviews />
-        </div>
-      </Tab>
     </>
   );
 }

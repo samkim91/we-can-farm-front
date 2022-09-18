@@ -1,21 +1,26 @@
-import React from "react";
+import React, { useCallback } from "react";
+
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 import {
   FarmCardContent,
   FarmCardTitle,
   FarmCategoryLabel,
   FarmItemContainer,
-  FarmRankingLabel,
   FramCardContentsWrapper,
 } from "./styles";
 
 function FarmItem() {
+  const router = useRouter();
+
+  const onClickFarmItem = useCallback(() => {
+    // TODO: 동적으로 할당해야함
+    router.push("/detail");
+  }, [router]);
+
   return (
-    <FarmItemContainer>
-      <FarmRankingLabel>
-        <p>1</p>
-      </FarmRankingLabel>
+    <FarmItemContainer onClick={onClickFarmItem}>
       <Image
         width={222}
         height={200}
@@ -30,10 +35,8 @@ function FarmItem() {
         <FarmCategoryLabel>
           <p>업종명</p>
         </FarmCategoryLabel>
-        <FarmCardTitle>내가 잘나감요</FarmCardTitle>
-        <FarmCardContent>
-          애응애응애응 품질은 매우중요합니다 네네네네
-        </FarmCardContent>
+        <FarmCardTitle>농장 제목</FarmCardTitle>
+        <FarmCardContent>농장 내용</FarmCardContent>
       </FramCardContentsWrapper>
     </FarmItemContainer>
   );
