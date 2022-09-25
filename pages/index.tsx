@@ -17,6 +17,7 @@ import CategoryCarousel from "components/ui/CategoryCarousel";
 import { colors } from "styles/productStyles";
 import FarmListCarousel from "components/modules/farmMain/FarmListCarousel";
 import FarmItem from "components/modules/farmMain/FarmItem";
+import Carousel from "components/ui/Carousel";
 
 const DynamicCategoryCarousel = dynamic(
   () => import("components/ui/CategoryCarousel"),
@@ -81,6 +82,7 @@ const Home: NextPage = ({}: any) => {
       {/* TODO: 반응형처리 */}
       {/* <ImageCarousel /> */}
 
+      <Carousel />
       <DynamicCategoryCarousel
         categoryList={dummyData}
         onClickCategory={onClickCategory}
