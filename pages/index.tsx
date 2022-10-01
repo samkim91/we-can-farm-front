@@ -1,21 +1,15 @@
-import { useCallback, useEffect, useState } from "react";
-import type { GetServerSideProps, NextPage } from "next";
-import Link from "next/link";
+import { useCallback, useState } from "react";
+
+import type { NextPage } from "next";
 import dynamic from "next/dynamic";
 
 import styled from "styled-components";
-
-import useWindowDimensions from "hooks/useWindowDimensions";
-
-import FarmCard from "components/ui/FarmCard";
-import BaseLayout from "components/layout/BaseLayout";
-
-import ImageCarousel from "components/ui/ImageCarousel";
-import CategoryCarousel from "components/ui/CategoryCarousel";
-
 import { colors } from "styles/productStyles";
-import FarmListCarousel from "components/Home/FarmListCarousel";
-import FarmItem from "components/Home/FarmListCarousel/FarmItem";
+
+import { useFarmList } from "queryClient/useFarms";
+import { loadFarmListAPI } from "api/farm";
+
+import BaseLayout from "components/layout/BaseLayout";
 import Carousel from "components/ui/Carousel";
 
 const DynamicCategoryCarousel = dynamic(
@@ -69,6 +63,14 @@ const dummyData = [
 const Home: NextPage = ({}: any) => {
   const [selectedCategory, setSelectedCategory] = useState<number>(0);
 
+  // const { data, isLoading, isFetching } = useFarmList();
+  // const [farmList, setFarmList] = useState([]);
+  // useEffect(() => {
+  //   loadFarmListAPI().then((response) => {
+  //     setFarmList(response.data);
+  //   });
+  // }, []);
+
   const onClickCategory = useCallback(
     (categoryId: number, sliderIndex: number) => {
       setSelectedCategory(categoryId);
@@ -78,10 +80,8 @@ const Home: NextPage = ({}: any) => {
 
   return (
     <BaseLayout>
-      {/* TODO: 반응형처리 */}
-      {/* <ImageCarousel /> */}
-
       <Carousel />
+
       <DynamicCategoryCarousel
         categoryList={dummyData}
         onClickCategory={onClickCategory}
@@ -89,17 +89,7 @@ const Home: NextPage = ({}: any) => {
       />
 
       <Title>🥕 MD 추천</Title>
-
-      {/* <FarmCardList> */}
-      {/* <Link href={`/lunch`}>
-          <a>
-            <FarmCard />
-          </a>
-        </Link>
-        <FarmCard /> */}
-
       <DynamicFarmListCarousel />
-      {/* </FarmCardList> */}
     </BaseLayout>
   );
 };
@@ -112,26 +102,6 @@ const Title = styled.h1`
   & > strong {
     color: ${colors.MAIN_COLOR};
   }
-  /* color: ${colors.GREY_MID}; */
 `;
-
-// const FarmCardList = styled.ul`
-//   display: grid;
-//   grid-template-columns: repeat(4, 1fr);
-//   justify-items: left;
-//   margin-top: 50px;
-// `;
-
-// export const getServerSideProps: GetServerSideProps = async () => {
-//   const fetchCategoryList = await loadCategoryListAPI();
-
-//   const categoryList = fetchCategoryList.data.data;
-
-//   return {
-//     props: {
-//       categoryList,
-//     },
-//   };
-// };
 
 export default Home;

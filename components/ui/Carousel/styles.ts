@@ -41,6 +41,7 @@ export const CarouselLeftNavigator = styled.div`
   bottom: calc(200px - 16.5px);
   display: inline-block;
   left: 12px;
+  cursor: pointer;
 `;
 
 export const CarouselRightNavigator = styled.div`
@@ -48,12 +49,7 @@ export const CarouselRightNavigator = styled.div`
   bottom: calc(200px - 16.5px);
   display: inline-block;
   right: 12px;
-
-  :hover {
-    cursor: pointer;
-    background-color: silver;
-    color: gray;
-  }
+  cursor: pointer;
 `;
 
 export const DotWrapper = styled.div`

@@ -1,5 +1,5 @@
 import axiosInstance from "./axiosInstance";
-import { FRAMS } from "./endpoints";
+import { FRAMS } from "./endPoints";
 
 export const loadFarmListAPI = () => {
   return axiosInstance.get(FRAMS);

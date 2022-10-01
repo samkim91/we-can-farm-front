@@ -11,6 +11,8 @@ import {
   Dot,
   DotWrapper,
 } from "./styles";
+import NavRightChevron from "public/icons/NavRightChevron";
+import NavLeftChevron from "public/icons/NavLeftChevron";
 
 const defaultProps = {
   items: [
@@ -53,10 +55,10 @@ function Carousel({ items = defaultProps.items }) {
       </CarouselWrapper>
 
       <CarouselLeftNavigator onClick={() => onClickNavButton(-1)}>
-        <p> {"<"}</p>
+        <NavLeftChevron width={24} height={24} />
       </CarouselLeftNavigator>
       <CarouselRightNavigator onClick={() => onClickNavButton(1)}>
-        <p>{">"}</p>
+        <NavRightChevron width={24} height={24} />
       </CarouselRightNavigator>
 
       <DotWrapper>
