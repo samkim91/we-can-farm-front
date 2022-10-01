@@ -6,7 +6,6 @@ import dynamic from "next/dynamic";
 import styled from "styled-components";
 
 import useWindowDimensions from "hooks/useWindowDimensions";
-import { loadCategoryListAPI } from "api/category";
 
 import FarmCard from "components/ui/FarmCard";
 import BaseLayout from "components/layout/BaseLayout";
@@ -15,8 +14,8 @@ import ImageCarousel from "components/ui/ImageCarousel";
 import CategoryCarousel from "components/ui/CategoryCarousel";
 
 import { colors } from "styles/productStyles";
-import FarmListCarousel from "components/modules/farmMain/FarmListCarousel";
-import FarmItem from "components/modules/farmMain/FarmItem";
+import FarmListCarousel from "components/Home/FarmListCarousel";
+import FarmItem from "components/Home/FarmListCarousel/FarmItem";
 import Carousel from "components/ui/Carousel";
 
 const DynamicCategoryCarousel = dynamic(
@@ -25,7 +24,7 @@ const DynamicCategoryCarousel = dynamic(
 );
 
 const DynamicFarmListCarousel = dynamic(
-  () => import("components/modules/farmMain/FarmListCarousel"),
+  () => import("components/Home/FarmListCarousel"),
   { ssr: false }
 );
 

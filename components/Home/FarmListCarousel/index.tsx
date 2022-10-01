@@ -3,7 +3,7 @@ import { Settings } from "react-slick";
 
 import useWindowDimensions from "hooks/useWindowDimensions";
 
-import FarmItem from "../FarmItem";
+import FarmItem from "./FarmItem";
 
 import { FarmList, StyledSlider } from "./styles";
 import { sizes } from "styles/productStyles";
