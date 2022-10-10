@@ -67,9 +67,15 @@ export const ImageWrapper = styled.div<{ isSelected: boolean }>`
   border-radius: 50px;
   box-sizing: border-box;
   overflow: hidden;
-  width: 66px;
-  height: 66px;
+  max-width: 66px;
+  max-height: 66px;
   margin: 0 auto;
+  position: relative;
+
+  & > img {
+    width: 100%;
+    height: 100%;
+  }
 
   ${({ isSelected }) =>
     isSelected

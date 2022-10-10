@@ -41,7 +41,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         </Hydrate>
         <ReactQueryDevtools />
       </QueryClientProvider>
-      )
     </>
   );
 }

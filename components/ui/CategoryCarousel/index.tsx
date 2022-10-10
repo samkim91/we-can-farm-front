@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
-import Slider, { Settings } from "react-slick";
 import Image from "next/image";
-import useWindowDimensions from "hooks/useWindowDimensions";
 import { useRouter } from "next/router";
+
+import Slider, { Settings } from "react-slick";
+import useWindowDimensions from "hooks/useWindowDimensions";
+
+import { ITheme } from "components/Home/interface";
 
 import {
   Container,
@@ -14,22 +17,25 @@ import {
   Wrapper,
 } from "./styles";
 
+const categoryAll = {
+  id: 0,
+  code: "ALL",
+  isActive: true,
+  name: "전체보기",
+  priority: 0,
+  themeAttachment: {
+    url: "/images/hepali.jpeg",
+  },
+};
+
 interface CategoryCarouselProps {
-  categoryList: any[];
+  themeList: ITheme[];
   selectedCategory: number;
   onClickCategory: (categoryId: number, sliderCurrIndex: number) => void;
 }
 
-const categoryAll = {
-  createdAt: "",
-  name: "전체보기",
-  nameEn: "all",
-  id: 0,
-  imageUrl: "/images/category/knowHow/all.png",
-};
-
 function CategoryCarousel({
-  categoryList,
+  themeList,
   selectedCategory,
   onClickCategory,
 }: CategoryCarouselProps) {
@@ -68,10 +74,6 @@ function CategoryCarousel({
   useEffect(() => {
     let index: any;
 
-    // if (categoryType === "guide") {
-    //   index = sessionStorage.getItem("knowhowSliderIndex") || "0";
-    // }
-
     const numberIndex = Number.parseInt(index, 10);
     if (!index) return;
 
@@ -87,37 +89,41 @@ function CategoryCarousel({
       sliderRef.current?.slickGoTo(sliderCurrIndex);
     }
 
-    if (categoryList?.length)
+    if (themeList?.length)
       setState((prev) => ({
         ...prev,
-        itemsTotalLength: categoryList?.length,
+        itemsTotalLength: themeList?.length,
       }));
-  }, [sliderCurrIndex, categoryList]);
+  }, [sliderCurrIndex, themeList]);
 
   return (
     <Container>
       <Wrapper>
         {/* <Title>카테고리별로 찾아보세요</Title> */}
         <Slider {...settings} ref={sliderRef}>
-          {[categoryAll].concat(categoryList).map((value) => (
+          {[categoryAll].concat(themeList).map((theme) => (
             <Item
-              onClick={() => onClickCategory(value.id, sliderCurrIndex)}
-              key={value.id}
+              key={theme.id}
+              onClick={() => onClickCategory(theme.id, sliderCurrIndex)}
             >
-              <ImageWrapper isSelected={value.id === selectedCategory}>
+              <ImageWrapper isSelected={theme.id === selectedCategory}>
                 {/* <Image
-                  width="100"
-                  height="100"
-                  src={`images/hepali.jpeg`}
+                  width={100}
+                  height={100}
+                  src={
+                    theme.themeAttachment.url
+                      ? theme.themeAttachment.url
+                      : `/images/hepali.jpeg`
+                  }
                   loading="eager"
                   priority={true}
-                  alt="farm_category_img"
+                  alt="farm-theme-img"
                   quality={100}
                 /> */}
-                <img src={`images/hepali.jpeg`} alt="category_img" />
+                <img src={theme.themeAttachment.url} alt="theme-img" />
               </ImageWrapper>
-              {/* <Text checked={value.id === selectedCategory}>{value.name}</Text> */}
-              <Text checked={value.id === selectedCategory}>카테고리</Text>
+
+              <Text checked={theme.id === selectedCategory}>{theme.name}</Text>
             </Item>
           ))}
         </Slider>

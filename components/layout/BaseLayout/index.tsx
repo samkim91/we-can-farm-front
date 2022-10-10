@@ -11,7 +11,6 @@ interface BaseLayoutProps {
 
 function BaseLayout({ children }: BaseLayoutProps) {
   const { laptopTablet } = MediaQuery();
-  // console.log("laptopTablet", laptopTablet);
 
   return (
     <BaseLayoutContainer>

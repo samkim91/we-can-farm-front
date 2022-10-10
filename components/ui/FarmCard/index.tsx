@@ -18,7 +18,6 @@ function FarmCard() {
         alt="farm_main_img"
         quality={100}
       />
-
       <FarmCardContent>수박 ,체리 | 구로구</FarmCardContent>
       <FarmCardTitle>아침밥농원</FarmCardTitle>
       <FarmCardContent>아침밥농원 짱맛있음</FarmCardContent>

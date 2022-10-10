@@ -12,15 +12,15 @@ import {
   FramCardContentsWrapper,
 } from "./styles";
 
-function FarmItem({ farmId, name, image, ownerNote }: FarmCardProps) {
+function FarmItem({ name, image, ownerNote }: FarmCardProps) {
   const router = useRouter();
 
   useEffect(() => {
-    router.prefetch(`/detail${farmId}`);
+    router.prefetch(`/detail${name}`);
   }, []);
 
   const onClickFarmItem = useCallback(() => {
-    router.push(`/detail/${farmId}`);
+    router.push(`/detail/${name}`);
   }, [router]);
 
   return (

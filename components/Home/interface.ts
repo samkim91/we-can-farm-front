@@ -24,8 +24,24 @@ export interface IFarm {
 }
 
 export interface FarmCardProps {
-  farmId: number;
   name: string;
   image: string;
   ownerNote: string;
+}
+
+interface IthemeAttachment {
+  id: number;
+  name: string;
+  size: number;
+  type: "IMAGE";
+  url: string;
+}
+
+export interface ITheme {
+  id: number;
+  code: string;
+  isActive: boolean;
+  name: string;
+  priority: number;
+  themeAttachment: IthemeAttachment;
 }
