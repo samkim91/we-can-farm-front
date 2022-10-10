@@ -1,6 +1,7 @@
 import React from "react";
 import productStyles from "styles/productStyles";
 import MediaQuery from "utils/mediaQuery";
+import Footer from "../Footer";
 
 import BaseHeader from "./BaseHeader";
 import { BaseLayoutContainer, BaseLayoutBody } from "./styles";
@@ -16,6 +17,7 @@ function BaseLayout({ children }: BaseLayoutProps) {
     <BaseLayoutContainer>
       <BaseHeader />
       <BaseLayoutBody>{children}</BaseLayoutBody>
+      <Footer />
     </BaseLayoutContainer>
   );
 }

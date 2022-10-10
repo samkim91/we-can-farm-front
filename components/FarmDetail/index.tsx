@@ -18,40 +18,52 @@ import {
   IconTextWrapper,
 } from "./styles";
 
-function FarmDetail() {
+import { FarmDetailProps } from "./interface";
+
+function FarmDetail({ farmData }: FarmDetailProps) {
+  const {
+    name,
+    address,
+    detailAddress,
+    ownerNotes,
+    email,
+    mainPhone,
+    refundPolicy,
+    openingHours,
+  } = farmData;
   return (
     <>
       <BaseLayout>
         <FarmImageWrapper>
-          <img
-            // width={222}
-            // height={200}
+          <Image
+            layout="fill"
             src="/images/hepali.jpeg"
-            // loading="eager"
-            // priority={true}
-            alt="farm_main_img"
-            // quality={100}
+            loading="eager"
+            priority={true}
+            alt="farm-main-img"
+            quality={100}
           />
         </FarmImageWrapper>
+
         <FarmDetailContainer>
           <FarmInfoBasicInfoWrapper>
-            <p className="farm-small-info">업종명・파주시</p>
-            <h1>농장이름</h1>
+            <p className="farm-small-info"></p>
+            <h1>{name}</h1>
             <IconTextWrapper>
-              <img src="/icons/location.svg" />
-              <p>제주특별자치도 서귀포시 서호동 1523-1</p>
+              <img src="/icons/location.svg" alt="location-icon" />
+              <p>{address + " " + detailAddress}</p>
             </IconTextWrapper>
 
             <IconTextWrapper>
-              <img src="/icons/call.svg" />
-              <p>010-2222-2222</p>
+              <img src="/icons/call.svg" alt="call-icon" />
+              <p>{mainPhone}</p>
             </IconTextWrapper>
 
             <p className="farm-small-info">예약취소가능 여부</p>
             <CustomDivider />
           </FarmInfoBasicInfoWrapper>
 
-          <FarmIntroduce />
+          <FarmIntroduce ownerNotes={ownerNotes} />
           <CustomDivider />
 
           <FarmOpeningHours />
@@ -60,7 +72,7 @@ function FarmDetail() {
           <FarmUsePrice />
           <CustomDivider />
 
-          <FarmRefundPolicy />
+          <FarmRefundPolicy refundPolicy={refundPolicy} />
           <CustomDivider />
 
           <FarmAmenities />
@@ -69,7 +81,7 @@ function FarmDetail() {
           <FarmLocation />
           <CustomDivider />
 
-          <FarmOwnerInfo />
+          <FarmOwnerInfo email={email} />
         </FarmDetailContainer>
       </BaseLayout>
     </>

@@ -45,6 +45,7 @@ function FarmListCarousel({ farmList }: FarmListCarouselProps) {
         {farmList?.map((farm) => (
           <FarmItem
             key={farm.id}
+            farmId={farm.id}
             name={farm.name}
             image={farm.images[0]}
             ownerNote={farm.ownerNotes}

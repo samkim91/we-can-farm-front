@@ -4,14 +4,9 @@ import { useRouter } from "next/router";
 
 import SearchBox from "components/ui/SearchBox";
 
-import {
-  BaseHeaderContainer,
-  NabBar,
-  MenuWrapper,
-  Menu,
-  Divider,
-  Logo,
-} from "./styles";
+import LogoIcon from "public/icons/LogoIcon";
+
+import { BaseHeaderContainer, NabBar, Divider, Logo } from "./styles";
 
 interface BaseHeaderProps {}
 
@@ -21,7 +16,9 @@ function BaseHeader({}: BaseHeaderProps) {
       <BaseHeaderContainer>
         <NabBar>
           <Link href="/">
-            <Logo>위캔팜</Logo>
+            <Logo>
+              <LogoIcon width={68} height={18} />
+            </Logo>
           </Link>
 
           {/* <MenuWrapper>

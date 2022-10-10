@@ -8,13 +8,17 @@ export const FarmDetailContainer = styled.div`
 
 export const FarmImageWrapper = styled.div`
   margin-top: 30px;
-  text-align: center;
+  position: relative;
+  margin: 0 auto;
   border: 1px solid ${colors.GREY_LIGHT};
+  width: 70%;
+  height: 300px;
 
-  & > img {
-    width: 90%;
-    height: 300px;
-  }
+  /* & > span {
+    & > img {
+      border: 1px solid red;
+    }
+  } */
 `;
 
 export const FarmInfoBasicInfoWrapper = styled.section`

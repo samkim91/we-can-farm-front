@@ -3,7 +3,9 @@ import React from "react";
 import { FarmInfoContainer, FarmInfoTitleAndContent } from "../styles";
 import { FarmerSns, FarmerSnsWrapper } from "./styles";
 
-function FarmOwnerInfo() {
+import { FarmOwnerInfoProps } from "../interface";
+
+function FarmOwnerInfo({ email }: FarmOwnerInfoProps) {
   return (
     <FarmInfoContainer>
       <h1>농장주 정보</h1>
@@ -51,7 +53,7 @@ function FarmOwnerInfo() {
 
       <FarmInfoTitleAndContent>
         <dt className="title">이메일</dt>
-        <dd className="contents"> lunch@naver.com</dd>
+        <dd className="contents">{email}</dd>
       </FarmInfoTitleAndContent>
     </FarmInfoContainer>
   );
