@@ -1,7 +1,8 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
 
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { FarmCardProps } from "components/Home/interface";
 
 import {
   FarmCardContent,
@@ -11,12 +12,15 @@ import {
   FramCardContentsWrapper,
 } from "./styles";
 
-function FarmItem() {
+function FarmItem({ farmId, name, image, ownerNote }: FarmCardProps) {
   const router = useRouter();
 
+  useEffect(() => {
+    router.prefetch(`/detail${farmId}`);
+  }, []);
+
   const onClickFarmItem = useCallback(() => {
-    // TODO: 동적으로 할당해야함
-    router.push("/detail");
+    router.push(`/detail/${farmId}`);
   }, [router]);
 
   return (
@@ -24,10 +28,10 @@ function FarmItem() {
       <Image
         width={222}
         height={200}
-        src="/images/hepali.jpeg"
+        src={image ? image : `/images/hepali.jpeg`}
         loading="eager"
         priority={true}
-        alt="farm_main_img"
+        alt="farm-img"
         quality={100}
       />
 
@@ -35,8 +39,8 @@ function FarmItem() {
         <FarmCategoryLabel>
           <p>업종명</p>
         </FarmCategoryLabel>
-        <FarmCardTitle>농장 제목</FarmCardTitle>
-        <FarmCardContent>농장 내용</FarmCardContent>
+        <FarmCardTitle>{name}</FarmCardTitle>
+        <FarmCardContent>{ownerNote}</FarmCardContent>
       </FramCardContentsWrapper>
     </FarmItemContainer>
   );

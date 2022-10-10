@@ -7,8 +7,13 @@ import FarmItem from "./FarmItem";
 
 import { FarmList, StyledSlider } from "./styles";
 import { sizes } from "styles/productStyles";
+import { IFarm } from "../interface";
 
-function FarmListCarousel() {
+interface FarmListCarouselProps {
+  farmList: IFarm[];
+}
+
+function FarmListCarousel({ farmList }: FarmListCarouselProps) {
   //   const { width } = useWindowDimensions(0);
   const [windowWidth, setWindowWidth] = useState<number>(0);
 
@@ -24,23 +29,28 @@ function FarmListCarousel() {
   const sliderOptions: Settings = {
     dots: false,
     infinite: true,
-    slidesToShow: 4,
+    slidesToShow: showItem,
     slidesToScroll: 1,
     autoplay: true,
     rows: 1,
-    speed: 2000,
-    autoplaySpeed: 1500,
-    // cssEase: 'ease-in',
-    arrows: false, //NOTE: false를 안하면 모바일환경에서 공백이생김
+    speed: 1500,
+    autoplaySpeed: 500,
+    // cssEase: "ease-in",
+    arrows: false,
   };
 
   return (
     <FarmList>
       <StyledSlider {...sliderOptions}>
-        <FarmItem />
-        <FarmItem />
-        <FarmItem />
-        <FarmItem />
+        {farmList?.map((farm) => (
+          <FarmItem
+            key={farm.id}
+            farmId={farm.id}
+            name={farm.name}
+            image={farm.images[0]}
+            ownerNote={farm.ownerNotes}
+          />
+        ))}
       </StyledSlider>
     </FarmList>
   );
