@@ -31,6 +31,7 @@ function FarmDetail({ farmData }: FarmDetailProps) {
     refundPolicy,
     openingHours,
   } = farmData;
+
   return (
     <>
       <BaseLayout>
