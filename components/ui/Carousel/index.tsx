@@ -18,15 +18,7 @@ const defaultProps = {
   items: [
     {
       description: "A Item",
-      imgae: "/images/hepali.jpeg",
-    },
-    {
-      description: "B Item",
-      imgae: "/images/hepali.jpeg",
-    },
-    {
-      description: "C Item",
-      imgae: "/images/hepali.jpeg",
+      imgae: "/images/banner.png",
     },
   ],
 };
@@ -44,30 +36,30 @@ function Carousel({ items = defaultProps.items }) {
 
   return (
     <CarouselContainer>
-      <CarouselWrapper ref={swiperRef}>
-        {items.map((item, index) => (
-          <CarouselContents key={index}>
-            <img src={item?.imgae} alt={item.description} />
-            <br />
-            <p> {item.description}</p>
-          </CarouselContents>
-        ))}
-      </CarouselWrapper>
+      {/* <CarouselWrapper ref={swiperRef}> */}
+      {items.map((item, index) => (
+        <CarouselContents key={index}>
+          <img src={item?.imgae} alt={item.description} />
+          <br />
+          {/* <p> {item.description}</p> */}
+        </CarouselContents>
+      ))}
+      {/* </CarouselWrapper> */}
 
-      <CarouselLeftNavigator onClick={() => onClickNavButton(-1)}>
+      {/* <CarouselLeftNavigator onClick={() => onClickNavButton(-1)}>
         <NavLeftChevron width={24} height={24} />
       </CarouselLeftNavigator>
       <CarouselRightNavigator onClick={() => onClickNavButton(1)}>
         <NavRightChevron width={24} height={24} />
-      </CarouselRightNavigator>
+      </CarouselRightNavigator> */}
 
-      <DotWrapper>
+      {/* <DotWrapper>
         {Array(items.length)
           .fill(0)
           .map((_, index) => (
             <Dot isActive={index === slideIndex} key={index} />
           ))}
-      </DotWrapper>
+      </DotWrapper> */}
     </CarouselContainer>
   );
 }

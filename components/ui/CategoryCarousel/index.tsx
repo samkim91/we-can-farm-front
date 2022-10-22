@@ -17,16 +17,16 @@ import {
   Wrapper,
 } from "./styles";
 
-const categoryAll = {
-  id: 0,
-  code: "ALL",
-  isActive: true,
-  name: "전체보기",
-  priority: 0,
-  themeAttachment: {
-    url: "/images/hepali.jpeg",
-  },
-};
+// const categoryAll = {
+//   id: 0,
+//   code: "ALL",
+//   isActive: true,
+//   name: "전체보기",
+//   priority: 0,
+//   themeAttachment: {
+//     url: "/images/hepali.jpeg",
+//   },
+// };
 
 interface CategoryCarouselProps {
   themeList: ITheme[];
@@ -101,13 +101,16 @@ function CategoryCarousel({
       <Wrapper>
         {/* <Title>카테고리별로 찾아보세요</Title> */}
         <Slider {...settings} ref={sliderRef}>
-          {[categoryAll].concat(themeList).map((theme) => (
-            <Item
-              key={theme.id}
-              onClick={() => onClickCategory(theme.id, sliderCurrIndex)}
-            >
-              <ImageWrapper isSelected={theme.id === selectedCategory}>
-                {/* <Image
+          {
+            // [categoryAll].concat
+
+            themeList.map((theme) => (
+              <Item
+                key={theme.id}
+                onClick={() => onClickCategory(theme.id, sliderCurrIndex)}
+              >
+                <ImageWrapper isSelected={theme.id === selectedCategory}>
+                  {/* <Image
                   width={100}
                   height={100}
                   src={
@@ -120,12 +123,15 @@ function CategoryCarousel({
                   alt="farm-theme-img"
                   quality={100}
                 /> */}
-                <img src={theme.themeAttachment.url} alt="theme-img" />
-              </ImageWrapper>
+                  <img src={theme.themeAttachment.url} alt="theme-img" />
+                </ImageWrapper>
 
-              <Text checked={theme.id === selectedCategory}>{theme.name}</Text>
-            </Item>
-          ))}
+                <Text checked={theme.id === selectedCategory}>
+                  {theme.name}
+                </Text>
+              </Item>
+            ))
+          }
         </Slider>
       </Wrapper>
     </Container>

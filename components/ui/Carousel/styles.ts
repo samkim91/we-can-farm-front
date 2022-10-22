@@ -8,12 +8,14 @@ export const CarouselContainer = styled.div`
   margin-top: 5%;
   border: 1px solid #eeeeee;
   border-radius: 5px;
-  height: 400px;
+  /* height: 400px; */
+  height: 350px;
 `;
 
 export const CarouselWrapper = styled.div`
   position: absolute;
   width: calc(100% - 30px);
+  /* width: 100%; */
   margin: 25px 15px;
   height: 350px;
   white-space: nowrap;
@@ -28,8 +30,13 @@ export const CarouselWrapper = styled.div`
 
 export const CarouselContents = styled.div`
   width: 100%;
-  height: 350px;
+  /* height: 350px; */
   display: inline-block;
+
+  & > img {
+    width: 100%;
+    height: 350px;
+  }
 
   & > p {
     z-index: 99;

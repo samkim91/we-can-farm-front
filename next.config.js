@@ -7,6 +7,7 @@ const nextConfig = {
     // NOTE: 정적 가져오기 비활성화
     // disableStaticImages: true,
     formats: ["image/avif", "image/webp"],
+    webpack5: false,
     // domains: ["localhost", "*"],
     domains: [
       "localhost",
