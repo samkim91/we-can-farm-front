@@ -5,8 +5,6 @@ import { useRouter } from "next/router";
 import Slider, { Settings } from "react-slick";
 import useWindowDimensions from "hooks/useWindowDimensions";
 
-import { ITheme } from "components/Home/interface";
-
 import {
   Container,
   Title,
@@ -16,6 +14,7 @@ import {
   Text,
   Wrapper,
 } from "./styles";
+import { ITheme } from "types/interface";
 
 // const categoryAll = {
 //   id: 0,

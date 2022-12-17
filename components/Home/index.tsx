@@ -5,7 +5,7 @@ import Carousel from "components/ui/Carousel";
 import { Title } from "./styles";
 import FarmListCarousel from "./FarmListCarousel";
 import CategoryCarousel from "components/ui/CategoryCarousel";
-import { IFarm, ITheme } from "./interface";
+import { IFarm, ITheme } from "types/interface";
 
 const DynamicCategoryCarousel = dynamic(
   () => import("components/ui/CategoryCarousel"),

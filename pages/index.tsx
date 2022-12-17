@@ -7,8 +7,7 @@ import Home from "components/Home";
 // import { useFarmList } from "queryClient/useFarms";
 import { loadFarmListAPI } from "api/farm";
 import { loadThemeListAPI } from "api/theme";
-
-import { IFarm, ITheme } from "components/Home/interface";
+import { IFarm, ITheme } from "types/interface";
 
 const HomePage: NextPage = () => {
   // const { data, isLoading, isFetching } = useFarmList();

@@ -6,7 +6,7 @@ export const CheckBoxWrapper = styled.div`
   cursor: pointer;
 
   & > p {
-    color: ${colors.GREY_LIGHT};
+    color: ${colors.BLACK};
     margin: 0 0 0 6px;
     font-size: 13px;
     font-weight: 500;
