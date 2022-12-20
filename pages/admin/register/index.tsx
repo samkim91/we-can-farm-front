@@ -39,12 +39,8 @@ function AdminRegisterPage() {
 
   useEffect(() => {
     loadThemeListAPI().then((response) => {
-      setThemeList(response.data.content);
+      setThemeList(response.data.data);
     });
-
-    // loadFarmListAPI().then((response) => {
-    //   setFarmList(response.data.content);
-    // });
   }, []);
 
   const onClickTab = useCallback(

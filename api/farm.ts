@@ -1,8 +1,10 @@
 import axiosInstance from "./axiosInstance";
 import { FRAMS } from "./endPoints";
 
-export const loadFarmListAPI = () => {
-  return axiosInstance.get(FRAMS);
+export const loadFarmListAPI = (themePageParams: any) => {
+  return axiosInstance.get(FRAMS, {
+    params: { themePageParams },
+  });
 };
 
 export const loadFarmAPI = (farmId: number) => {

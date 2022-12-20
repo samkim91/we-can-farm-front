@@ -7,7 +7,11 @@ interface ChipProps {
 }
 
 function Chip({ label }: ChipProps) {
-  return <ChipContainer>{label}</ChipContainer>;
+  return (
+    <ChipContainer>
+      <p>{label}</p>
+    </ChipContainer>
+  );
 }
 
 export default Chip;

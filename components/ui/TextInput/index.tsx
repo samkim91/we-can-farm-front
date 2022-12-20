@@ -27,7 +27,7 @@ function TextInput({
         maxLength={maxLength}
         autoComplete={type === "password" ? "current-password" : "on"} //NOTE: 자동완성 ->현재비밀번호 반영
         autocapitalize="off" // NOTE: 첫글자 대문자입력방지
-        {...registerHookForm}
+        // {...registerHookForm}
       />
       <InputLabel htmlFor={`${registerHookForm?.name}_input`}>
         {labelText}

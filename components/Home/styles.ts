@@ -10,3 +10,11 @@ export const Title = styled.h1`
     color: ${colors.MAIN_COLOR};
   }
 `;
+
+export const FramListContainer = styled.div`
+  margin: 40px 0;
+  row-gap: 30px;
+  column-gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+`;

@@ -9,4 +9,12 @@ export const ChipContainer = styled.span`
   font-size: 12px;
   font-weight: 400;
   line-height: 15px;
+  padding: 10px 16px;
+  border-radius: 30px;
+
+  & > p {
+    font-size: 11px;
+    line-height: 15px;
+    letter-spacing: 0.06px;
+  }
 `;

@@ -16,7 +16,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   try {
     const response = await loadFarmAPI(farmId);
     if (response.status === 200) {
-      const farmData = response.data;
+      const farmData = response.data.data;
       return { props: { farmData } };
     }
     return { props: {} };

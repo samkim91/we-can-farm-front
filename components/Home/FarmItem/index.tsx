@@ -28,8 +28,7 @@ function FarmItem({ farmId, name, image, ownerNote }: FarmCardProps) {
       <Image
         width={222}
         height={200}
-        // src={image ? image : `/images/hepali.jpeg`}
-        src="/images/hepali.jpeg"
+        src={image ? image : `/images/hepali.jpeg`}
         loading="eager"
         priority={true}
         alt="farm-img"

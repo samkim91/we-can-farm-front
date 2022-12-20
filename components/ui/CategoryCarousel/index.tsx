@@ -30,7 +30,11 @@ import { ITheme } from "types/interface";
 interface CategoryCarouselProps {
   themeList: ITheme[];
   selectedCategory: number;
-  onClickCategory: (categoryId: number, sliderCurrIndex: number) => void;
+  onClickCategory: (
+    categoryId: number,
+    sliderCurrIndex: number,
+    themeName: string
+  ) => void;
 }
 
 function CategoryCarousel({
@@ -106,7 +110,9 @@ function CategoryCarousel({
             themeList.map((theme) => (
               <Item
                 key={theme.id}
-                onClick={() => onClickCategory(theme.id, sliderCurrIndex)}
+                onClick={() =>
+                  onClickCategory(theme.id, sliderCurrIndex, theme.name)
+                }
               >
                 <ImageWrapper isSelected={theme.id === selectedCategory}>
                   {/* <Image

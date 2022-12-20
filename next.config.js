@@ -13,6 +13,7 @@ const nextConfig = {
       "localhost",
       "*",
       "https://weekanfarm.s3.ap-northeast-2.amazonaws.com",
+      "http://weekanfarm.s3.ap-northeast-2.amazonaws.com",
     ],
   },
 };

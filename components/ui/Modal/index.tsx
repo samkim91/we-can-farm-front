@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import {
   ModalContainer,
@@ -15,7 +15,13 @@ interface ModalProps {
 }
 
 function Modal({ children, onCloseModal, isOverLay = true }: ModalProps) {
-  const portalModalElement = document.getElementById("portal_modal");
+  const [portalModalElement, setPortalModalElement] = useState();
+  useEffect(() => {
+    const value = document?.getElementById("portal_modal");
+    if (value !== null) {
+      setPortalModalElement(value);
+    }
+  }, []);
 
   return (
     portalModalElement &&
