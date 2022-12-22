@@ -46,10 +46,7 @@ function SearchBox() {
       <BsSearch size="20" onClick={() => setIsSearchModalOpen(true)} />
 
       {isSearchModalOpen && (
-        <Modal
-          isOverLay={false}
-          onCloseModal={() => setIsSearchModalOpen(false)}
-        >
+        <Modal onCloseModal={() => setIsSearchModalOpen(false)}>
           <SearchInputFullContainer>
             <BsSearch size="20" />
             <SearchInputFullWrapper>

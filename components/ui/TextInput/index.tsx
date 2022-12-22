@@ -6,7 +6,7 @@ import { Wrapper, Input, InputLabel } from "./styles";
 
 interface TextInputProps {
   labelText: string;
-  placeholder: string;
+  placeholder?: string;
   maxLength?: number;
   type: HTMLInputTypeAttribute;
   register?: UseFormRegister<FieldValues> | any;
