@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { createPortal } from "react-dom";
 import {
   ModalContainer,
@@ -8,39 +8,34 @@ import {
   ModalHeader,
 } from "./styles";
 
-interface ModalProps {
+interface Props {
   children: React.ReactNode | React.ReactElement;
   onCloseModal: () => void;
-  isOverLay?: boolean;
 }
 
-function Modal({ children, onCloseModal, isOverLay = true }: ModalProps) {
-  const [portalModalElement, setPortalModalElement] = useState();
-  useEffect(() => {
-    const value = document?.getElementById("portal_modal");
-    if (value !== null) {
-      setPortalModalElement(value);
-    }
-  }, []);
+// NOTE: Portal 을 통한 모달생성
+function ModalPortal({ children, onCloseModal }: Props) {
+  const portalModalElement = document.getElementById("portal_modal");
 
   return (
     portalModalElement &&
     createPortal(
       <ModalContainer>
-        {isOverLay && <OverLay role="presentation" onClick={onCloseModal} />}
-
+        <OverLay role="presentation" onClick={onCloseModal} />
         <ModalContents>
-          {/* <ModalHeader>
-            <p>SPECNOTE</p>
-          </ModalHeader> */}
-          {/* <button onClick={onCloseModal}>x</button> */}
-          {children}
-          {/* <ModalBody>{children}</ModalBody> */}
+          {/*  NOTE: 임시 */}
+          <ModalHeader>
+            <p>주소검색</p>
+            <button onClick={onCloseModal}>x</button>
+          </ModalHeader>
+          <ModalBody>{children}</ModalBody>
         </ModalContents>
       </ModalContainer>,
       portalModalElement
     )
   );
+
+  // return null;
 }
 
-export default Modal;
+export default ModalPortal;

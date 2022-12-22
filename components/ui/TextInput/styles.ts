@@ -10,7 +10,7 @@ export const Input = styled.input`
   border-radius: 5px;
   color: ${colors.MAIN_COLOR};
   border: 1px solid ${colors.GREY_LIGHT};
-  height: 36px;
+  height: 48px;
   padding: 12px;
   min-width: 280px;
   font-size: 13px;
@@ -24,7 +24,6 @@ export const Input = styled.input`
   }
 
   :focus {
-    /* NOTE: 에러도 추가 */
     border: 1px solid ${colors.MAIN_COLOR};
     background-color: ${colors.WHITE};
 
@@ -42,6 +41,6 @@ export const InputLabel = styled.label`
   background-color: ${colors.WHITE};
   min-width: 22px;
   text-align: center;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 500;
 `;
