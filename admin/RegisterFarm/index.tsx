@@ -1,14 +1,22 @@
-import ThemeSeleceter from "components/modules/ThemeSelecter";
-import TextInput from "components/ui/TextInput";
-import React, { useState } from "react";
-import { IFarm, ITheme } from "types/interface";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Space, Wrapper } from "./styles";
+
+import TextInput from "components/ui/TextInput";
+import TextArea from "components/ui/TextAreaInput";
+import TextAreaInput from "components/ui/TextAreaInput";
+import Chip from "components/ui/Chip";
+
+import { IFarm, ITheme } from "types/interface";
+
+import ThemeSeleceter, {
+  ISelectedTheme,
+} from "components/modules/ThemeSelecter";
+
 import LocationForm, {
   locationDataType,
 } from "components/modules/LocationForm";
-import TextArea from "components/ui/TextAreaInput";
-import TextAreaInput from "components/ui/TextAreaInput";
+
+import { ChipWrapper, Space, Wrapper } from "./styles";
 
 interface RegisterFarmProps {
   // farmList: IFarm[];
@@ -32,9 +40,16 @@ function RegisterFarm({ themeList }: RegisterFarmProps) {
   } = useForm<FormValues>();
 
   const [location, setLocation] = useState<string | undefined>("");
+  const [selectedThemeList, setSelectedThemeList] = useState<ISelectedTheme[]>(
+    []
+  );
 
   const onChangeLocation = (resultData: locationDataType) => {
     setLocation(resultData.address);
+  };
+
+  const onSavedThemeList = (themeList: ISelectedTheme[]) => {
+    setSelectedThemeList(themeList);
   };
 
   const onSubmitRegisterFarm = handleSubmit((data) => console.log(data));
@@ -42,13 +57,11 @@ function RegisterFarm({ themeList }: RegisterFarmProps) {
   return (
     <form onSubmit={onSubmitRegisterFarm}>
       <input type="submit" />
-
       <TextInput
         labelText="농장이름"
         type="text"
         register={{ ...register("name") }}
       />
-
       <Space />
       <Wrapper>
         <TextInput
@@ -63,10 +76,9 @@ function RegisterFarm({ themeList }: RegisterFarmProps) {
         />
       </Wrapper>
       <Space />
-
       <LocationForm location={location} onChangeLocation={onChangeLocation} />
-      <Space />
 
+      <Space />
       <TextInput
         labelText="세부주소"
         type="text"
@@ -79,7 +91,16 @@ function RegisterFarm({ themeList }: RegisterFarmProps) {
         register={{ ...register("directions") }}
       />
 
-      {/* <ThemeSeleceter themeList={themeList} /> */}
+      <ThemeSeleceter
+        themeList={themeList}
+        onSavedThemeList={onSavedThemeList}
+      />
+
+      <ChipWrapper>
+        {selectedThemeList?.map((value) => (
+          <Chip key={value.id} label={value.name} />
+        ))}
+      </ChipWrapper>
     </form>
   );
 }

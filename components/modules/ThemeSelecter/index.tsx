@@ -16,46 +16,37 @@ import {
 
 interface ThemeSeleceterProps {
   themeList: ITheme[];
+  onSavedThemeList: (themeList: ISelectedTheme[]) => void;
 }
 
-function ThemeSeleceter({ themeList }: ThemeSeleceterProps) {
-  const [themeSelectList, setThemeSelectList] = useState(
-    new Array(themeList.length).fill(false)
-  );
-  const [isThemeAddModalOpen, setIsThemeAddModalOpen] = useState(false);
-  const [isCheckBoxClick, setIsCheckBoxClick] = useState(false);
+export interface ISelectedTheme {
+  id: number;
+  name: string;
+}
 
-  const onClikcAddTheme = () => {
-    setIsThemeAddModalOpen(true);
-  };
+function ThemeSeleceter({ themeList, onSavedThemeList }: ThemeSeleceterProps) {
+  const [themeSelectList, setThemeSelectList] = useState<ISelectedTheme[]>([]);
 
-  console.log("themeSelectList", themeList);
-
-  const onClickCheckBox = (
-    event: React.MouseEvent<HTMLElement, MouseEvent>,
-    value
+  const handleOnChange = (
+    checked: boolean,
+    themeName: string,
+    themeId: number
   ) => {
-    console.log(event.target.value);
-    console.log(value.id);
-    const updatedCheckedState = themeSelectList.map((item, index) =>
-      index === value.id ? !item : item
-    );
-    // if (value.id === ev) setIsCheckBoxClick(true);
-  };
-
-  const handleOnChange = (position: number) => {
-    const updatedCheckedState = themeSelectList.map((item, index) =>
-      index === position ? !item : item
-    );
-
-    setThemeSelectList(updatedCheckedState);
+    if (checked) {
+      setThemeSelectList([
+        ...themeSelectList,
+        { id: themeId, name: themeName },
+      ]);
+    } else if (!checked) {
+      setThemeSelectList(themeSelectList.filter((el) => el.id !== themeId));
+    }
   };
 
   return (
     <Container>
       <Dialog.Root>
         <HeaderWrapper>
-          <p>테마</p>
+          {/* <p>테마</p> */}
           <Dialog.Trigger asChild>
             <Button>+ 테마추가</Button>
           </Dialog.Trigger>
@@ -68,23 +59,23 @@ function ThemeSeleceter({ themeList }: ThemeSeleceterProps) {
             <DialogDescription>
               {themeList.map((value, index) => (
                 <div key={index}>
-                  {/* <CheckBox
-                    onChange={() => handleOnChange(index)}
-                    key={index}
-                    isChecked={themeSelectList[index]}
-                    // onClickCheckBox={() => handleOnChange(index)}
-                    // onClickCheckBox={(event) => onClickCheckBox(event, value)}
-                    // onClickCheckBox={() => handleOnChange(index)}
-                    checkBoxText={value.name}
-                  /> */}
-
                   <input
                     type="checkbox"
                     id={`custom-checkbox-${index}`}
                     name={value.name}
                     value={value.name}
-                    checked={themeSelectList[index]}
-                    onChange={() => handleOnChange(index)}
+                    checked={
+                      themeSelectList.some((value) => value.id - 1 === index)
+                        ? true
+                        : false
+                    }
+                    onChange={(e) => {
+                      handleOnChange(
+                        e.target.checked,
+                        e.target.value,
+                        value.id
+                      );
+                    }}
                   />
                   <label htmlFor={`custom-checkbox-${index}`}>
                     {value.name}
@@ -98,15 +89,13 @@ function ThemeSeleceter({ themeList }: ThemeSeleceterProps) {
                 <button aria-label="Close">취소</button>
               </Dialog.Close>
               <Dialog.Close asChild>
-                <Button>저장하기</Button>
+                <Button onClick={() => onSavedThemeList(themeSelectList)}>
+                  저장하기
+                </Button>
               </Dialog.Close>
             </DialogButtonWrapper>
           </DialogContents>
         </Dialog.Portal>
-
-        {themeList.map((value, index) => (
-          <Chip key={index} label={value.name} />
-        ))}
       </Dialog.Root>
     </Container>
   );

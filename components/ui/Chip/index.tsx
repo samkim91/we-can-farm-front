@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ChipContainer } from "./styles";
+import { ChipContainer, ChipWrapper } from "./styles";
 
 interface ChipProps {
   label: string;
@@ -9,7 +9,9 @@ interface ChipProps {
 function Chip({ label }: ChipProps) {
   return (
     <ChipContainer>
-      <p>{label}</p>
+      <ChipWrapper>
+        <p>{label}</p>
+      </ChipWrapper>
     </ChipContainer>
   );
 }

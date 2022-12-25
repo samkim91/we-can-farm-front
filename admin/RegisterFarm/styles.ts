@@ -16,3 +16,9 @@ export const Wrapper = styled.div`
 export const Space = styled.div`
   height: 20px;
 `;
+
+export const ChipWrapper = styled.div`
+  display: flex;
+  margin-bottom: 20px;
+  gap: 5px;
+`;

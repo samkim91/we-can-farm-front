@@ -7,6 +7,7 @@ export const Container = styled.div``;
 export const HeaderWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  margin: 20px 0;
 
   & > button {
     width: 150px;

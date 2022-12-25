@@ -1,7 +1,11 @@
 import styled from "styled-components";
 import { colors } from "styles/productStyles";
 
-export const ChipContainer = styled.span`
+export const ChipContainer = styled.div`
+  display: flex;
+`;
+
+export const ChipWrapper = styled.div`
   border-radius: 6px;
   padding: 6px 8px;
   background-color: ${colors.GRAY_F5};
